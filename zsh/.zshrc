@@ -160,10 +160,6 @@ source ~/fzf-git.sh/fzf-git.sh
 
 export BAT_THEME=tokyonight_night
 
-# thefuck alias
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
-
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init --cmd cd zsh)"
 
