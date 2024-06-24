@@ -169,3 +169,5 @@ alias ls="eza --icons=always -l -a --no-user --no-time"
 
 eval "$(atuin init zsh)"
 
+export EDITOR=nvim
+
