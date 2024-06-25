@@ -110,6 +110,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias lg="lazygit"
 alias cat="bat"
+alias c="clear"
+alias vim="nvim"
+
+export EDITOR=nvim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -165,9 +169,10 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # ---- Eza (better ls) -----
 # alias ls="eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-alias ls="eza --icons=always -l -a --no-user --no-time"
+alias ls="eza --icons=always -G -a"
+alias ll="eza --icons=always -l -a --no-user --no-time"
+alias l="eza --icons=always -l -a --no-user --no-time"
 
 eval "$(atuin init zsh)"
 
-export EDITOR=nvim
 
