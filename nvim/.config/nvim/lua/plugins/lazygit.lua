@@ -1,7 +1,7 @@
 return {
   "kdheepak/lazygit.nvim",
   init = function()
-    vim.g.lazygit_floating_window_winblend = 10
+    vim.g.lazygit_floating_window_winblend = 0
   end,
   cmd = {
     "LazyGit",

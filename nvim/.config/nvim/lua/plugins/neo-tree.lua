@@ -10,6 +10,7 @@ return {
     },
     config = function()
       vim.keymap.set('n', '<C-t>', ":Neotree toggle <CR>", {})
+      vim.keymap.set('n', '<Leader>git', ":Neotree float git_status <CR>", {})
     end
   }
 }
