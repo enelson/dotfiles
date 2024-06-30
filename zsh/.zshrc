@@ -112,6 +112,7 @@ alias lg="lazygit"
 alias cat="bat"
 alias c="clear"
 alias vim="nvim"
+alias tree="tree --filesfirst"
 
 export EDITOR=nvim
 
