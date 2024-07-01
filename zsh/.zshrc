@@ -163,7 +163,7 @@ _fzf_comprun() {
 
 source ~/fzf-git.sh/fzf-git.sh
 
-export BAT_THEME=tokyonight_night
+export BAT_THEME=Catppuccin_Mocha
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init --cmd cd zsh)"
