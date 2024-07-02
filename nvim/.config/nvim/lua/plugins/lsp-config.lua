@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "tsserver", "jdtls" },
+        ensure_installed = { "lua_ls", "gopls", "tsserver", "jdtls", "ruby_lsp" },
         automatic_installation = true
       })
     end
@@ -74,7 +74,7 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-      local servers = { 'gopls', 'lua_ls', 'tsserver', 'jdtls' }
+      local servers = { 'gopls', 'lua_ls', 'tsserver', 'jdtls', 'ruby_lsp' }
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
           on_attach = on_attach,

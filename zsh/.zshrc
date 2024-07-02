@@ -175,5 +175,5 @@ alias ll="eza --icons=always -l -a --no-user --no-time"
 alias l="eza --icons=always -l -a --no-user --no-time"
 
 eval "$(atuin init zsh)"
-
+eval "$(rbenv init - zsh)"
 
