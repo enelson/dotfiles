@@ -3,6 +3,10 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {}
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
