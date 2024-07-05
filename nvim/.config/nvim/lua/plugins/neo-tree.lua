@@ -9,6 +9,13 @@ return {
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
+      require('neo-tree').setup({
+        filesystem = {
+          follow_current_file = {
+            enabled = true,
+          }
+        }
+      })
       vim.keymap.set('n', '<C-t>', ":Neotree toggle <CR>", {})
       vim.keymap.set('n', '<Leader>git', ":Neotree float git_status <CR>", {})
     end
