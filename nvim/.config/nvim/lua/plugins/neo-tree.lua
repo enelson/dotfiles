@@ -6,18 +6,18 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-    config = function()
-      require('neo-tree').setup({
-        filesystem = {
-          follow_current_file = {
-            enabled = true,
-          }
+    keys = {
+      { "<C-t>", "<CMD>Neotree toggle<CR>", desc = "Toggle NeoTree" },
+      { "<Leader>git", "<CMD>Neotree float git_status<CR>", desc = "Show NeoTree Git status" },
+    },
+    opts = {
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
         }
-      })
-      vim.keymap.set('n', '<C-t>', ":Neotree toggle <CR>", {})
-      vim.keymap.set('n', '<Leader>git', ":Neotree float git_status <CR>", {})
-    end
+      }
+    },
   }
 }
+

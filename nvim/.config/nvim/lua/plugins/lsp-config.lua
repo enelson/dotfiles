@@ -1,18 +1,14 @@
 return {
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end
+    opts = {},
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "tsserver", "jdtls", "ruby_lsp" },
-        automatic_installation = true
-      })
-    end
+    opts = {
+      ensure_installed = { "lua_ls", "gopls", "tsserver", "jdtls", "ruby_lsp" },
+      automatic_installation = true
+    },
   },
   {
     'hrsh7th/cmp-nvim-lsp',
