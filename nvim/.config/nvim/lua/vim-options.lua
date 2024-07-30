@@ -17,6 +17,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.cursorline = true
 vim.opt.hlsearch = true
+vim.opt.relativenumber = true
 
 vim.keymap.set('i', 'jj', '<ESC>', {})
 vim.keymap.set('n', 'tt', 'zt', {})
@@ -29,6 +30,11 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('v', '<Leader>y', '"+y', {})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
+
+vim.keymap.set('i', '\'', '\'\'<left>', {})
+vim.keymap.set('i', '\"', '\"\"<left>', {})
+vim.keymap.set('i', '(', '()<left>', {})
+vim.keymap.set('i', '[', '[]<left>', {})
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
