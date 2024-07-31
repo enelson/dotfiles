@@ -108,6 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls="eza --icons=always -G -a"
+alias ll="eza --icons=always -l -a --no-user --no-time"
+alias l="ll"
 alias lg="lazygit"
 alias cat="bat"
 alias c="clear"
@@ -164,16 +167,12 @@ _fzf_comprun() {
 source ~/fzf-git.sh/fzf-git.sh
 
 export BAT_THEME=Catppuccin_Mocha
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 
-# ---- Zoxide (better cd) ----
 eval "$(zoxide init --cmd cd zsh)"
-
-# ---- Eza (better ls) -----
-# alias ls="eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-alias ls="eza --icons=always -G -a"
-alias ll="eza --icons=always -l -a --no-user --no-time"
-alias l="eza --icons=always -l -a --no-user --no-time"
-
 eval "$(atuin init zsh)"
 eval "$(rbenv init - zsh)"
 
