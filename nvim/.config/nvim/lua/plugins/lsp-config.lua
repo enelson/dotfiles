@@ -1,84 +1,41 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = {},
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = { "lua_ls", "gopls", "tsserver", "jdtls", "ruby_lsp" },
-      automatic_installation = true
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim"
     },
-  },
-  {
-    'hrsh7th/cmp-nvim-lsp',
-  },
-  {
-    "hrsh7th/cmp-cmdline",
-  },
-  {
-    'L3MON4D3/LuaSnip',
-  },
-  {
-    'hrsh7th/nvim-cmp',
     config = function()
-      local cmp = require('cmp')
-      local luasnip = require('luasnip')
+      local mason = require('mason')
+      local mason_lspconfig = require('mason-lspconfig')
 
-      luasnip.config.setup {}
-
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end
-        },
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-        }, {
-          { name = 'buffer' },
-        }),
-        preselect = 'item',
-        completion = {
-          completeopt = 'menu,menuone,noinsert'
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<CR>'] = cmp.mapping.confirm({select = false}),
-        }),
-      })
-
-          -- `/` cmdline setup.
-      cmp.setup.cmdline('/', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
-
-          -- `:` cmdline setup.
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-        {
-          name = 'cmdline',
-          option = {
-            ignore_cmds = { 'Man', '!' }
+      mason.setup({
+        ui = {
+          icons = {
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗"
           }
         }
-        })
+      })
+
+      mason_lspconfig.setup({
+        ensure_installed = { "lua_ls", "gopls", "tsserver", "jdtls", "ruby_lsp", "astro", "tailwindcss", "html", "graphql" },
+        automatic_installation = true
       })
     end
   },
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp"
+    },
     config = function()
       local lspconfig = require('lspconfig')
+      local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
       local on_attach = function(_, bufnr)
-        local attach_opts = { silent = true, buffer = bufnr }
+        local attach_opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, attach_opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, attach_opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, attach_opts)
@@ -96,7 +53,7 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-      local servers = { 'gopls', 'lua_ls', 'tsserver', 'jdtls', 'ruby_lsp' }
+      local servers = { 'gopls', 'lua_ls', 'tsserver', 'jdtls', 'ruby_lsp', 'astro', 'tailwindcss', 'html', 'graphql' }
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
           on_attach = on_attach,
