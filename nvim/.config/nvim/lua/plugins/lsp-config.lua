@@ -51,7 +51,7 @@ return {
       end
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
       local servers = { 'gopls', 'lua_ls', 'tsserver', 'jdtls', 'ruby_lsp', 'astro', 'tailwindcss', 'html', 'graphql' }
       for _, lsp in ipairs(servers) do
